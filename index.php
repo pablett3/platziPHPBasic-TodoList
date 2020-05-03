@@ -7,6 +7,8 @@ error_reporting(E_ALL);
 require_once 'vendor/autoload.php';
 require_once 'Task.php';
 
+use Aura\Router\RouterContainer;
+
 use Relay\Relay;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -43,7 +45,7 @@ $twig = new \Twig_Environment($loader, array(
     'cache' => false,
 ));
 
-$router = new Aura\Router\RouterContainer();
+$router = new RouterContainer();
 $map = $router->getMap();
 
 $map->get('todo.list', '/platziPHPTaskList/', function ($request) use ($twig) {
